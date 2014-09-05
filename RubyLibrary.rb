@@ -7,13 +7,18 @@ Phil Wilt phillip.wilt@gmail.com
 
 
 =begin
-Book class for a library.
+	Book class for a library.
+
+	name - name of the book
+	shelf - the shelf to add the book to
+
+
 =end
 class Book 
 	attr_accessor :name
 	def initialize(name, shelf = nil)
 		@name = name
-		@shelf = shelf if shelf != nil 
+		 enshelf(shelf) if shelf != nil 
 	end
 
 	def enshelf(shelf)
@@ -73,7 +78,11 @@ class Shelf
 end
 
 =begin
-Library class that holds shelves of books
+	
+	Library class that holds shelves of books
+
+	Constructor - 
+		shelves  - an array of shelves
 =end
 class Library
 	attr_reader :num_shelves
@@ -136,7 +145,7 @@ puts "Create a second shelf"
 shelf2 = Shelf.new()
 Book.new("Taco Bell: Behind the Cheese").enshelf(shelf2)
 Book.new("Fear and Loathing").enshelf(shelf2)
-Book.new("Little House on the Scary").enshelf(shelf2)
+Book.new("Little House on the Scary", shelf2)
 puts shelf2.list_books
 
 library.add_shelf(shelf)
